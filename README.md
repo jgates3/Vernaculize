@@ -9,7 +9,7 @@ Vernaculize is a learning and education-focused Android app that helps users lea
 - Gives the users the ability to change text-to-speech voice.
 - Gives the users the ability to change pitch and speed rates.
 - Gives the ability to change the tested languages (English, Spanish, Italian, German, Chinese)
-- Has a daily progress goal (Study 7 words a day)
+- Has a daily progress goal that updates(Study 7 words a day)
 - Tracks the number of words the user has learned and tracks the accuracy and proficiency of the user and their answers.
 - Randomly gives a list of words that the user got incorrect in order for them to review them. 
 - Has a give-up button that displays the answer to the user.
