@@ -21,8 +21,9 @@ class HomePage : AppCompatActivity() {
 
         val progressPrefs = getSharedPreferences("ProgressPrefs", Context.MODE_PRIVATE)
         val currentProgress = progressPrefs.getInt("progress", 0)
-        var percentage = 0.0
         progressBar.progress = currentProgress
+        
+        var percentage = 0.0
         var randomWord1: String
         var randomWord2: String
 
@@ -51,8 +52,6 @@ class HomePage : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java) //starts MainActivity
             startActivity(intent)
         }
-
-
 
         val counterPreferences = getSharedPreferences("CounterPrefs", Context.MODE_PRIVATE) //preferences for counter
         val correctCounter = counterPreferences.getInt("correctCounter", 0)
