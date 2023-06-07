@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var talkspeed: Float = 0.0f
     private val barStarter = 50
     private var correctCounter = 0
-
     var wordCount = 0
     var counter = 0
     var hintisEnabled = false
@@ -56,13 +55,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         pitchPrefs = PreferenceManager.getDefaultSharedPreferences(this) // Initialize prefs
         talkspeed = talkspeedPrefs.getInt("speed", barStarter).toFloat()
         pitchvoice = pitchPrefs.getInt("pitch", barStarter).toFloat()/50.0f
-
-
     }
 
     fun getRandomWord() {
         var wordArray = ArrayList<String>()
-
         val ilPreferences = getSharedPreferences("ilPreferences", MODE_PRIVATE)
         selectedil = ilPreferences.getString("Selectedil", "").toString()
         var defbutton = findViewById<Button>(R.id.definitionbutton)
@@ -117,7 +113,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     if (userInputText == translatedText) { //if input and answer is the same
                         getRandomWord() //generate a new word!
                         Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
-                        if (!hintisEnabled || !giveupIsEnabled) { //user knew the word without any help!
+                        if (hintisEnabled == true|| giveupIsEnabled == true) { //user knew the word without any help!
                             counter++ //add to streak counter
                             correctCounter++ //add to number of correct words counter
                             correctPrefs2++
@@ -127,7 +123,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                             counterTextView.text = counter.toString()
 
                         }
-                        else if (hintisEnabled || giveupIsEnabled) { //user uses hint or give up option
+                        else if (hintisEnabled == false || giveupIsEnabled == false) { //user uses hint or give up option
                             counter = 0 //streak is broken
                             counterTextView.text = counter.toString()
                         }
@@ -183,8 +179,6 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                         return null //returns to null to make it print  "Definition not found!"
                     }
                 }
-
-
                 val definition = getWordDefinition(translatedText)
                 launch(Dispatchers.Main) {//Toast messages ran on a new coroutine
                     if (definition != null) { //shows definition
@@ -215,7 +209,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
         return null
     }
-    @Throws(IOException::class)
+ 
     fun getRandom(selectedil: String): String? {
         var language = when (selectedil){ //language selection
             "Spanish"-> "es"
