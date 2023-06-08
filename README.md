@@ -30,4 +30,4 @@ With more time, these are the features I would've liked to implement into this p
 
 Figma Design of Vernaculize Project:
 
-![Screenshot_28](https://github.com/jgates3/Vernaculize/assets/112346102/5d7c2bad-5c5d-403d-beba-d7a56c21219f)
+![Screenshot_28](https://github.com/jgates3/Vernaculize/assets/112346102/736e7d02-f29d-40a2-80b4-3ce5df7b29c5)
